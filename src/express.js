@@ -25,3 +25,5 @@ app.post("/email", async (req, res)=> {
 
 app.listen(PORT)
 console.log(`running server on ${PORT}`)
+
+export {app}

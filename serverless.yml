@@ -1,0 +1,18 @@
+
+service: node-email
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: prod # Set the default stage used. Default is dev
+  region: eu-west-1 # Overwrite the default region used. Default is us-east-1
+  environment:
+    EMAILUSER: XXXX
+    PASSWORD: XXXXX
+functions:
+  email: # A function
+    handler: src/handler.handler
+    events: # The events that trigger this function
+      - http:
+          path: email/
+          method: POST
+          cors: true # <-- CORS!
